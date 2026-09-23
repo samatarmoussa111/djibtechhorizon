@@ -20,7 +20,7 @@ export function Encadre({
   const { icon: Icon, title } = types[type]
 
   return (
-    <Alert className="my-8">
+    <Alert className="my-8 after:bg-brand">
       <Icon />
       <AlertTitle>{titre ?? title}</AlertTitle>
       <AlertDescription className="text-pretty [&_p]:mt-0">

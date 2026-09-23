@@ -7,7 +7,7 @@ export const site = {
   author: {
     name: "Samatar Barkadleh",
     role: "Fondateur · Djibouti Tech Horizon",
-    photo: "/photo.svg",
+    photo: "/photo.webp",
     initials: "SB",
   },
   links: [

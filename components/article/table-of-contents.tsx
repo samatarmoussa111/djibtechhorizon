@@ -15,7 +15,7 @@ export function TableOfContents({ headings }: { headings: Heading[] }) {
   return (
     <Collapsible className="border-y">
       <CollapsibleTrigger className="group flex w-full items-center justify-between py-3 outline-none focus-visible:ring-2 focus-visible:ring-ring/30">
-        <Eyebrow className="transition-colors group-hover:text-foreground">
+        <Eyebrow className="transition-colors group-hover:text-primary">
           Sommaire
         </Eyebrow>
         <ChevronDownIcon className="size-3.5 text-muted-foreground transition-transform group-data-panel-open:rotate-180" />
@@ -29,7 +29,7 @@ export function TableOfContents({ headings }: { headings: Heading[] }) {
             >
               <a
                 href={`#${heading.id}`}
-                className="text-muted-foreground transition-colors hover:text-foreground"
+                className="text-muted-foreground transition-colors hover:text-primary"
               >
                 {heading.text}
               </a>

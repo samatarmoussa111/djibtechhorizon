@@ -11,7 +11,7 @@ export function Chiffre({
 }) {
   return (
     <figure className="my-10 flex flex-col items-center gap-2 border-y py-8 text-center">
-      <span className="font-heading text-5xl font-semibold tracking-tight sm:text-6xl">
+      <span className="font-heading text-5xl font-semibold tracking-tight text-brand sm:text-6xl">
         {valeur}
       </span>
       <figcaption className="flex max-w-sm flex-col items-center gap-1.5">

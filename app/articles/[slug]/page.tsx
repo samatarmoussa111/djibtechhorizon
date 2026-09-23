@@ -63,10 +63,14 @@ export default async function ArticlePage({ params }: Props) {
 
   return (
     <article className="flex flex-col gap-10">
+      <div
+        aria-hidden="true"
+        className="reading-progress fixed inset-x-0 top-0 z-50 h-0.5 bg-brand"
+      />
       <header className="reveal flex flex-col gap-4">
         <Link
           href="/articles"
-          className="w-fit font-mono text-[0.68rem] tracking-[0.06em] text-muted-foreground uppercase transition-colors hover:text-foreground"
+          className="w-fit font-mono text-[0.68rem] tracking-[0.06em] text-muted-foreground uppercase transition-colors hover:text-primary"
         >
           ← Articles
         </Link>

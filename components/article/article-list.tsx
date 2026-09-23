@@ -18,10 +18,10 @@ export function ArticleList({
         <li key={article.slug}>
           <Link
             href={`/articles/${article.slug}`}
-            className="flex flex-col gap-1 px-3 py-3 transition-colors outline-none hover:bg-muted/60 focus-visible:ring-2 focus-visible:ring-ring/30"
+            className="group flex flex-col gap-1 px-3 py-3 transition-colors outline-none hover:bg-muted/60 focus-visible:ring-2 focus-visible:ring-ring/30"
           >
             <div className="flex items-baseline justify-between gap-4">
-              <span className="font-medium text-pretty">{article.title}</span>
+              <span className="font-medium text-pretty transition-colors group-hover:text-primary">{article.title}</span>
               <Eyebrow className="shrink-0 tabular-nums">
                 {formatDate(article.date, dateFormat)}
               </Eyebrow>

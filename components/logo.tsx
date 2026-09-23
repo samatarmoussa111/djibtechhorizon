@@ -2,14 +2,14 @@ import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { site } from "@/lib/site"
 
-// L'icône est chargée depuis /public et utilisée comme masque :
-// elle prend ainsi la couleur du texte, en thème clair comme en sombre.
+// L'icône est chargée depuis /public et utilisée comme masque sur le dégradé
+// « horizon » : elle suit ainsi les couleurs du thème clair et du thème sombre.
 export function LogoIcon({ className }: { className?: string }) {
   return (
     <span
       aria-hidden="true"
       className={cn(
-        "inline-block size-5 shrink-0 bg-current [mask:url(/logo.svg)_center/contain_no-repeat]",
+        "inline-block size-5 shrink-0 bg-brand [mask:url(/logo.svg)_center/contain_no-repeat]",
         className
       )}
     />

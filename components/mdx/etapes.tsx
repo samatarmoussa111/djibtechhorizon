@@ -24,7 +24,7 @@ export function Etapes({ children }: { children: React.ReactNode }) {
       {/* Ligne verticale qui relie les numéros */}
       <span
         aria-hidden="true"
-        className="absolute top-6 bottom-6 left-[29px] w-px bg-border"
+        className="absolute top-6 bottom-6 left-[29px] w-px bg-linear-to-b from-brand-from to-brand-to opacity-50"
       />
       {etapes.map((etape, index) =>
         cloneElement(etape, { key: index, numero: index + 1 })
@@ -36,7 +36,7 @@ export function Etapes({ children }: { children: React.ReactNode }) {
 export function Etape({ titre, children, numero }: EtapeProps) {
   return (
     <Item role="listitem" className="relative items-start px-3">
-      <ItemMedia className="size-8 border bg-background font-mono text-xs">
+      <ItemMedia className="size-8 border border-primary/40 bg-background font-mono text-xs text-primary">
         {String(numero).padStart(2, "0")}
       </ItemMedia>
       <ItemContent className="pt-1.5">

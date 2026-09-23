@@ -34,7 +34,8 @@ export function FicheMetier({
   ]
 
   return (
-    <Card size="sm" className="my-8">
+    <Card size="sm" className="relative my-8">
+      <span aria-hidden="true" className="absolute inset-x-0 top-0 h-0.5 bg-brand" />
       <CardHeader>
         <Eyebrow>Fiche métier</Eyebrow>
         <CardTitle>{titre}</CardTitle>
@@ -49,7 +50,7 @@ export function FicheMetier({
               <dt>
                 <Eyebrow>{stat.label}</Eyebrow>
               </dt>
-              <dd className="font-heading text-lg font-semibold">
+              <dd className="w-fit font-heading text-lg font-semibold text-brand">
                 {stat.value}
               </dd>
             </div>

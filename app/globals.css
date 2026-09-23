@@ -11,8 +11,11 @@
     --card-foreground: oklch(0.145 0 0);
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
+    --primary: oklch(0.56 0.14 232);
     --primary-foreground: oklch(0.985 0 0);
+    /* Dégradé « horizon » : bleu ciel → émeraude, les couleurs du drapeau djiboutien. */
+    --brand-from: oklch(0.6 0.16 238);
+    --brand-to: oklch(0.66 0.15 162);
     --secondary: oklch(0.97 0 0);
     --secondary-foreground: oklch(0.205 0 0);
     --muted: oklch(0.97 0 0);
@@ -22,7 +25,7 @@
     --destructive: oklch(0.577 0.245 27.325);
     --border: oklch(0.922 0 0);
     --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
+    --ring: oklch(0.56 0.14 232);
     --chart-1: oklch(0.87 0 0);
     --chart-2: oklch(0.556 0 0);
     --chart-3: oklch(0.439 0 0);
@@ -46,8 +49,10 @@
     --card-foreground: oklch(0.985 0 0);
     --popover: oklch(0.205 0 0);
     --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
+    --primary: oklch(0.8 0.12 222);
+    --primary-foreground: oklch(0.2 0.03 235);
+    --brand-from: oklch(0.78 0.13 228);
+    --brand-to: oklch(0.83 0.15 165);
     --secondary: oklch(0.269 0 0);
     --secondary-foreground: oklch(0.985 0 0);
     --muted: oklch(0.269 0 0);
@@ -57,7 +62,7 @@
     --destructive: oklch(0.704 0.191 22.216);
     --border: oklch(1 0 0 / 10%);
     --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
+    --ring: oklch(0.8 0.12 222);
     --chart-1: oklch(0.87 0 0);
     --chart-2: oklch(0.556 0 0);
     --chart-3: oklch(0.439 0 0);
@@ -102,6 +107,8 @@
     --color-secondary: var(--secondary);
     --color-primary-foreground: var(--primary-foreground);
     --color-primary: var(--primary);
+    --color-brand-from: var(--brand-from);
+    --color-brand-to: var(--brand-to);
     --color-popover-foreground: var(--popover-foreground);
     --color-popover: var(--popover);
     --color-card-foreground: var(--card-foreground);
@@ -131,7 +138,7 @@
     @apply font-sans;
     }
   ::selection {
-    @apply bg-foreground text-background;
+    @apply bg-primary text-primary-foreground;
     }
 }
 
@@ -168,4 +175,34 @@
 /* Apparition douce des sections au chargement. */
 @utility reveal {
   @apply animate-in fade-in slide-in-from-bottom-2 fill-mode-both duration-700 ease-out motion-reduce:animate-none;
+}
+
+/* Fond en dégradé « horizon ». */
+@utility bg-brand {
+  background-image: linear-gradient(135deg, var(--brand-from), var(--brand-to));
+}
+
+/* Texte en dégradé « horizon ». */
+@utility text-brand {
+  background-image: linear-gradient(120deg, var(--brand-from), var(--brand-to));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Barre de progression de lecture, pilotée par le défilement (sans JavaScript). */
+@keyframes reading-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@utility reading-progress {
+  display: none;
+
+  @supports (animation-timeline: scroll()) {
+    display: block;
+    transform-origin: left;
+    animation: reading-progress linear both;
+    animation-timeline: scroll(root);
+  }
 }

@@ -15,7 +15,7 @@ export function Citation({
         {children}
       </blockquote>
       <figcaption className="flex items-center gap-2">
-        <span aria-hidden="true" className="h-px w-6 bg-foreground" />
+        <span aria-hidden="true" className="h-0.5 w-6 bg-brand" />
         <span className="text-sm font-medium">{auteur}</span>
         {role && <Eyebrow>{role}</Eyebrow>}
       </figcaption>

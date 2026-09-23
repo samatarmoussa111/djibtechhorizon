@@ -50,7 +50,7 @@ function ArticleNavLink({
       variant="outline"
       render={<Link href={`/articles/${article.slug}`} />}
       className={cn(
-        "items-start",
+        "items-start hover:border-primary/40 [a]:hover:bg-transparent",
         align === "end" && "sm:col-start-2 sm:text-right"
       )}
     >

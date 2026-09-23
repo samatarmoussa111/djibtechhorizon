@@ -17,7 +17,7 @@ export function SiteFooter() {
                 target: "_blank",
                 rel: "noreferrer",
               })}
-              className="transition-colors hover:text-foreground"
+              className="transition-colors hover:text-primary"
             >
               {link.label}
             </a>

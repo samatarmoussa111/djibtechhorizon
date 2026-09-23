@@ -19,7 +19,14 @@ const fontData = fonts.map((font) => ({
   data: fs.readFileSync(path.join(fontsDir, font.file)),
 }))
 
-const colors = { background: "#fafafa", foreground: "#171717", muted: "#737373" }
+const colors = {
+  background: "#fafafa",
+  foreground: "#171717",
+  muted: "#737373",
+  brandFrom: "#1e88d6",
+  brandTo: "#10a37a",
+}
+const brandGradient = `linear-gradient(120deg, ${colors.brandFrom}, ${colors.brandTo})`
 
 // Image d'aperçu (Open Graph) commune au site et aux articles.
 export function renderOgImage({
@@ -41,24 +48,41 @@ export function renderOgImage({
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px 88px",
+          position: "relative",
           background: colors.background,
           color: colors.foreground,
           fontFamily: "Mona Sans",
         }}
       >
+        <div
+          style={{
+            position: "absolute",
+            left: 0,
+            right: 0,
+            bottom: 0,
+            height: 12,
+            backgroundImage: brandGradient,
+          }}
+        />
         <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
           <svg
             width="44"
             height="44"
             viewBox="0 0 32 32"
             fill="none"
-            stroke={colors.foreground}
+            stroke="url(#horizon)"
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
           >
+            <defs>
+              <linearGradient id="horizon" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stopColor={colors.brandFrom} />
+                <stop offset="1" stopColor={colors.brandTo} />
+              </linearGradient>
+            </defs>
             <path d="M16 5.5v3M8.2 9.7l2.1 2.1M23.8 9.7l-2.1 2.1M4 16.5h3M25 16.5h3" />
-            <path d="M9 21a7 7 0 0 1 14 0Z" fill={colors.foreground} />
+            <path d="M9 21a7 7 0 0 1 14 0Z" fill="url(#horizon)" />
             <path d="M3 21h26M8 25h16M12 28.5h8" />
           </svg>
           <span style={{ fontFamily: "Playfair Display", fontSize: 32 }}>
@@ -73,7 +97,7 @@ export function renderOgImage({
               fontSize: 22,
               letterSpacing: "0.06em",
               textTransform: "uppercase",
-              color: colors.muted,
+              color: colors.brandFrom,
             }}
           >
             {eyebrow}

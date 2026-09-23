@@ -45,7 +45,7 @@ export default async function HomePage() {
     <>
       <section className="reveal flex flex-col gap-6">
         <div className="flex items-center gap-4">
-          <Avatar className="size-14">
+          <Avatar className="size-16 bg-brand">
             <AvatarImage src={site.author.photo} alt={site.author.name} />
             <AvatarFallback>{site.author.initials}</AvatarFallback>
           </Avatar>
@@ -59,7 +59,7 @@ export default async function HomePage() {
         <p className="font-heading text-2xl leading-snug text-balance sm:text-[1.7rem]">
           J’aide les jeunes Djiboutiens à comprendre les métiers du numérique,
           développer des compétences recherchées et{" "}
-          <em className="text-muted-foreground">
+          <em className="text-brand pr-1">
             accéder à des opportunités qui dépassent les frontières.
           </em>
         </p>
@@ -72,7 +72,7 @@ export default async function HomePage() {
                   target: "_blank",
                   rel: "noreferrer",
                 })}
-                className="text-muted-foreground underline decoration-border underline-offset-4 transition-colors hover:text-foreground hover:decoration-foreground"
+                className="text-muted-foreground underline decoration-border underline-offset-4 transition-colors hover:text-primary hover:decoration-primary"
               >
                 {link.label}
               </a>
@@ -92,7 +92,7 @@ export default async function HomePage() {
           {timeline.map((step) => (
             <li
               key={step.year}
-              className="relative flex items-baseline gap-4 py-2 pl-5 before:absolute before:top-1/2 before:-left-[3.5px] before:size-1.5 before:-translate-y-1/2 before:bg-foreground"
+              className="relative flex items-baseline gap-4 py-2 pl-5 before:absolute before:top-1/2 before:-left-[3.5px] before:size-1.5 before:-translate-y-1/2 before:rounded-full before:bg-brand"
             >
               <Eyebrow className="w-9 shrink-0 tabular-nums">{step.year}</Eyebrow>
               <span className="text-sm">{step.event}</span>
@@ -106,7 +106,7 @@ export default async function HomePage() {
         <ol className="flex flex-col gap-5">
           {pillars.map((pillar, index) => (
             <li key={pillar.title} className="flex gap-4">
-              <Eyebrow className="pt-1 tabular-nums">
+              <Eyebrow className="pt-1 text-primary tabular-nums">
                 {String(index + 1).padStart(2, "0")}
               </Eyebrow>
               <div className="flex flex-col gap-1">
@@ -127,7 +127,7 @@ export default async function HomePage() {
           <Eyebrow>Derniers articles</Eyebrow>
           <Link
             href="/articles"
-            className="font-mono text-[0.68rem] tracking-[0.06em] text-muted-foreground uppercase transition-colors hover:text-foreground"
+            className="font-mono text-[0.68rem] tracking-[0.06em] text-muted-foreground uppercase transition-colors hover:text-primary"
           >
             Tout voir →
           </Link>

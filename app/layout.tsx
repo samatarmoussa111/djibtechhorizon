@@ -62,7 +62,14 @@ export default function RootLayout({
         <ThemeProvider>
           <TooltipProvider>
             <Toaster>
-              <div className="mx-auto flex min-h-svh w-full max-w-xl flex-col gap-9 px-6 py-10">
+              {/* Lueur d'horizon en haut de page */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-x-0 top-0 h-96 overflow-hidden opacity-20 dark:opacity-15"
+              >
+                <div className="absolute -top-48 left-1/2 h-80 w-[48rem] -translate-x-1/2 rounded-full bg-brand blur-3xl" />
+              </div>
+              <div className="relative mx-auto flex min-h-svh w-full max-w-xl flex-col gap-9 px-6 py-10">
                 <SiteHeader />
                 <main className="flex flex-1 flex-col gap-12 pt-5">
                   {children}

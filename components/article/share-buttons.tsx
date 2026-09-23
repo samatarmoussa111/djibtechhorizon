@@ -36,13 +36,19 @@ export function ShareButtons({ title, url }: { title: string; url: string }) {
             key={network.label}
             variant="outline"
             size="xs"
+            className="hover:border-primary/40 hover:text-primary"
             nativeButton={false}
             render={<a href={network.href} target="_blank" rel="noreferrer" />}
           >
             {network.label}
           </Button>
         ))}
-        <Button variant="outline" size="xs" onClick={copyLink}>
+        <Button
+          variant="outline"
+          size="xs"
+          className="hover:border-primary/40 hover:text-primary"
+          onClick={copyLink}
+        >
           <LinkIcon data-icon="inline-start" />
           Copier le lien
         </Button>

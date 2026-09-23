@@ -14,7 +14,7 @@ export function SiteHeader() {
           size="xs"
           nativeButton={false}
           render={<Link href="/articles" />}
-          className="font-mono text-[0.68rem] font-normal tracking-[0.06em] text-muted-foreground"
+          className="font-mono text-[0.68rem] font-normal tracking-[0.06em] text-muted-foreground hover:text-primary"
         >
           Articles
         </Button>

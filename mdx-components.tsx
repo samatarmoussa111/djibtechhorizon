@@ -36,7 +36,7 @@ const components = {
   p: (props) => <p className="mt-5 text-pretty" {...props} />,
   a: ({ href = "", ...props }) => {
     const className =
-      "font-medium underline decoration-muted-foreground/40 underline-offset-4 transition-colors hover:decoration-foreground"
+      "font-medium underline decoration-primary/40 underline-offset-4 transition-colors hover:text-primary hover:decoration-primary"
 
     return href.startsWith("/") || href.startsWith("#") ? (
       <Link href={href} className={className} {...props} />
@@ -55,20 +55,20 @@ const components = {
   ),
   ul: (props) => (
     <ul
-      className="mt-5 flex list-disc flex-col gap-2 pl-5 marker:text-muted-foreground"
+      className="mt-5 flex list-disc flex-col gap-2 pl-5 marker:text-primary"
       {...props}
     />
   ),
   ol: (props) => (
     <ol
-      className="mt-5 flex list-decimal flex-col gap-2 pl-5 marker:font-mono marker:text-xs marker:text-muted-foreground"
+      className="mt-5 flex list-decimal flex-col gap-2 pl-5 marker:font-mono marker:text-xs marker:text-primary"
       {...props}
     />
   ),
   li: (props) => <li className="pl-1 [&>p]:mt-0" {...props} />,
   blockquote: (props) => (
     <blockquote
-      className="mt-6 border-l-2 border-foreground pl-5 text-muted-foreground italic"
+      className="mt-6 border-l-2 border-primary pl-5 text-muted-foreground italic"
       {...props}
     />
   ),
