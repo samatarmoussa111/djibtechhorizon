@@ -76,6 +76,7 @@
 @theme inline {
     --font-sans: var(--font-sans);
     --font-heading: var(--font-heading);
+    --font-mono: var(--font-mono);
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -129,4 +130,42 @@
   html {
     @apply font-sans;
     }
+  ::selection {
+    @apply bg-foreground text-background;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Coloration syntaxique (rehype-pretty-code + Shiki), alignée sur le thème actif. */
+[data-rehype-pretty-code-figure] code[data-theme] span {
+  color: var(--shiki-light);
+}
+
+.dark [data-rehype-pretty-code-figure] code[data-theme] span {
+  color: var(--shiki-dark);
+}
+
+[data-rehype-pretty-code-figure] {
+  @apply my-8;
+}
+
+[data-rehype-pretty-code-title] {
+  @apply border border-b-0 bg-muted/40 px-4 py-2 font-mono text-[0.68rem] tracking-[0.06em] text-muted-foreground uppercase;
+}
+
+[data-rehype-pretty-code-figure] [data-line] {
+  @apply px-4;
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-line] {
+  @apply bg-muted;
+}
+/* Apparition douce des sections au chargement. */
+@utility reveal {
+  @apply animate-in fade-in slide-in-from-bottom-2 fill-mode-both duration-700 ease-out motion-reduce:animate-none;
 }
